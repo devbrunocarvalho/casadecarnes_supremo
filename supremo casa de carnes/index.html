@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <title>SUPREMO Açougue</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Outfit", sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: #000;
+      padding: 10px 0;
+    }
+
+    header .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-area img {
+      height: 60px;
+    }
+
+    .logo-area h1 {
+      font-size: 20px;
+      color: #d4af37;
+      letter-spacing: 2px;
+    }
+
+    .btn {
+      background: #d4af37;
+      color: #000;
+      padding: 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #b8962e;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    .benefits {
+      padding: 40px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .card h3 {
+      color: #d4af37;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    .about, .testimonials, .contact {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .about p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .testimonials .card {
+      background: #111;
+      padding: 20px;
+      min-height: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      background: #111;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: #25d366;
+      color: #fff;
+      padding: 14px;
+      border-radius: 50%;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    /* IMAGENS */
+    .card1::before {
+      background-image: url("front-view-meat-with-cleaver.jpg;")
+    }
+
+    .card2::before {
+      background-image: url("images.jpg");
+    }
+
+    .card3::before {
+      background-image: url("minced-meat-fresh-raw-ground-meat.jpg");
+    }
+
+    .card4::before {
+      background-image: url("raw-meat-table.jpg");
+    }
+
+    /* DESKTOP */
+    @media (min-width: 768px) {
+
+      header .container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .btn {
+        width: auto;
+      }
+
+      .hero {
+        padding: 100px 20px;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .testimonials .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo-area">
+      <img src="./IMG-20260414-WA0067.jpg" alt="Logo SUPREMO">
+      <h1>SUPREMO</h1>
+    </div>
+    <a onclick="abrirWhats()" class="btn">Pedir no WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Cortes Premium separados com antecedência!</h2>
+    <p>Qualidade superior, sabor incomparável.</p>
+    <a onclick="abrirWhats()" class="btn">Fazer Pedido</a>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container grid">
+
+    <div class="card card1">
+      <div class="card-content">
+        <h3>Peça Agora e Retire Depois</h3>
+        <p>Evite filas e garanta seu corte.</p>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="card-content">
+        <h3>Cortes Especiais</h3>
+        <p>Seleção premium todos os dias.</p>
+      </div>
+    </div>
+
+    <div class="card card3">
+      <div class="card-content">
+        <h3>Atendimento Premium</h3>
+        <p>Pedido fácil pelo WhatsApp.</p>
+      </div>
+    </div>
+
+    <div class="card card4">
+      <div class="card-content">
+        <h3>Qualidade Garantida</h3>
+        <p>Carne fresca e bem armazenada.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <h2 style="color:#d4af37;">Sobre o SUPREMO</h2>
+    <p>
+      O SUPREMO oferece cortes selecionados com padrão elevado de qualidade,
+      trazendo o melhor da carne direto para sua mesa.
+    </p>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2 style="color:#d4af37;">Clientes satisfeitos</h2>
+    <div class="grid">
+      <div class="card"><p>"Excelente lugar para comprar suas carnes..."</p></div>
+      <div class="card"><p>"Valores bem atrativos..."</p></div>
+      <div class="card"><p>"Parabéns meu amigo Fábio!"</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <h2 style="color:#d4af37;">Fale conosco</h2>
+    <form onsubmit="enviarForm(event)">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <textarea id="msg" placeholder="Mensagem" required></textarea>
+      <button class="btn">Enviar</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 SUPREMO Açougue</p>
+</footer>
+
+<a href="#" class="whatsapp" onclick="abrirWhats()">💬</a>
+
+<script>
+  function abrirWhats() {
+    const numero = "61984884519";
+    const mensagem = "Olá, quero fazer um pedido no SUPREMO!";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
+  }
+
+  function enviarForm(e) {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value;
+    const msg = document.getElementById("msg").value;
+    const texto = `Olá, meu nome é ${nome}. ${msg}`;
+    const numero = "61984884519";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
